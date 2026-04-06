@@ -8,12 +8,17 @@ const JobListings = ({ isHome = false }) => {
   useEffect(()=>{
   
     const fetchJobs = async ()=>{
-      const apiUrl = isHome ? "/api/jobs?_limit=3": "/api/jobs"
+      const apiUrl = "/api/jobs"
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();
         console.log(data)
-        setJobs(data);
+        if(isHome){
+          const homeJobs = data.slice(0, 3);
+          setJobs(homeJobs);
+        } else {
+          setJobs(data);
+        }
       } catch (error) {
         console.log('Error fetching data', error);
       } finally {
@@ -21,6 +26,7 @@ const JobListings = ({ isHome = false }) => {
       }
     };
     fetchJobs()
+    console.log(jobs)
   },[
        
   ])
