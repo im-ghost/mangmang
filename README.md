@@ -1,73 +1,148 @@
-# React + TypeScript + Vite
+# 💼 Job Finder App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A fast, modern job search application built with Vite + React — designed to help users discover opportunities with a clean and responsive interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Demo
 
-## React Compiler
+🔗 https://mangmang.netlify.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📸 Preview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+<!-- Add screenshots here -->
+<!-- Example:
+![Homepage](./public/preview.png)
+-->
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Category        | Technology |
+|----------------|-----------|
+| Frontend       | React (Vite) |
+| Language       | JSX + TypeScript (`main.tsx`) |
+| Backend (Mock) | JSON Server |
+| Deployment     | Netlify |
+
+---
+
+## ✨ Features
+
+- 🔍 Search and browse job listings  
+- 📄 Detailed job pages  
+- ⚡ Lightning-fast performance (Vite)  
+- 📱 Fully responsive design  
+- 🧪 Mock backend with JSON Server  
+
+---
+
+## ⚠️ Current Status
+
+This project currently uses a **mock backend (JSON Server)**.  
+A full backend is actively planned and will be integrated soon.
+
+---
+
+## 🧑‍💻 Getting Started
+
+### Clone the repo
+```bash
+git clone https://github.com/im-ghost/mangmang.git
+cd mangmang
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Install dependencies
+```bash
+yarn
 ```
+
+### Start JSON Server
+```bash
+yarn server
+```
+
+### Run the app
+```bash
+yarn dev
+```
+
+---
+
+## 📁 Project Structure
+
+```
+job-finder-app/
+│
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── main.tsx      # TypeScript entry point
+│   └── App.jsx
+|   ├── jobs.json   # Mock database
+│           
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## 🌐 Deployment (Netlify)
+
+1. Push to GitHub  
+2. Connect repository to Netlify  
+3. Build command:
+   ```
+   yarn build
+   ```
+4. Publish directory:
+   ```
+   dist
+   ```
+
+---
+
+## 🔮 Roadmap
+
+- 🚀 Full backend (Node.js / Express)
+- 🔐 Authentication & user accounts
+- ⭐ Save / bookmark jobs
+- 📊 Personalized dashboard
+- 🌍 Real-world job API integration
+
+---
+
+## 🧠 What I Learned
+
+- Building fast UIs with Vite  
+- Managing state and components in React  
+- Simulating APIs with JSON Server  
+- Deploying modern apps on Netlify  
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome!  
+For major changes, please open an issue first.
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+## 👤 Author
+
+**Adetonwa Richard**  
+- GitHub: https://github.com/im-ghost    
+
+---
+
+⭐ If you like this project, consider giving it a star!
