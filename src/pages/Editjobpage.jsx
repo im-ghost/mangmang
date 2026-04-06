@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useParams, useLoaderData, useNavigate } from 'react-router';
+import { useParams, useLoaderData, useNavigate, Form } from 'react-router';
 import { toast } from 'react-toastify';
 
-const EditJobPage = ({ updateJobSubmit }) => {
+const EditJobPage = () => {
   const job = useLoaderData();
   const [title, setTitle] = useState(job.title);
   const [type, setType] = useState(job.type);
@@ -19,36 +19,11 @@ const EditJobPage = ({ updateJobSubmit }) => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const submitForm = (e) => {
-    e.preventDefault();
-
-    const updatedJob = {
-      id,
-      title,
-      type,
-      location,
-      description,
-      salary,
-      company: {
-        name: companyName,
-        description: companyDescription,
-        contactEmail,
-        contactPhone,
-      },
-    };
-
-    updateJobSubmit(updatedJob);
-
-    toast.success('Job Updated Successfully');
-
-    return navigate(`/jobs/${id}`);
-  };
-
   return (
     <section className='bg-indigo-50'>
       <div className='container m-auto max-w-2xl py-24'>
         <div className='bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0'>
-          <form onSubmit={submitForm}>
+          <Form method='PUT'>
             <h2 className='text-3xl text-center font-semibold mb-6'>
               Update Job
             </h2>
@@ -235,7 +210,7 @@ const EditJobPage = ({ updateJobSubmit }) => {
                 Update Job
               </button>
             </div>
-          </form>
+          </Form>
         </div>
       </div>
     </section>
