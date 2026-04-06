@@ -2,11 +2,53 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link href="/src/style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>mang</title>
-  </head>
+
+  <!-- Primary SEO -->
+  <title>Job Finder – Find Your Dream Job Today</title>
+  <meta name="description" content="Find your perfect job with our powerful job search platform. Browse thousands of listings, apply instantly, and grow your career." />
+  <meta name="keywords" content="job finder, jobs, careers, employment, job search, hiring, vacancies, remote jobs" />
+  <meta name="author" content="Richard Adetonwa" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://mangmang.netlify.app/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/ico" href="/favicon.ico" />
+
+  <!-- Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:title" content="Mang Mang – Find Your Dream Job Today" />
+  <meta property="og:description" content="Explore thousands of job listings and apply instantly. Your next career move starts here." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mangmang.netlify.app/" />
+  <meta property="og:image" content="https://mangmang.netlify.app/preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mang Mang – Find Your Dream Job Today" />
+  <meta name="twitter:description" content="Browse jobs, apply fast, and land your dream role today." />
+  <meta name="twitter:image" content="https://mangmang.netlify.app /preview.png" />
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow" />
+
+  <!-- Structured Data (Google Jobs / SEO Boost) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Job Finder",
+    "url": "https://mangmang.netlify.app/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://mangmang.netlify.app/jobs?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
