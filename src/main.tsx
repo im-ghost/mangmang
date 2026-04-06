@@ -1,12 +1,12 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App.tsx';
-import Layout from './layout/mainlayout';
-import Jobspages from './pages/jobspage';
-import Addjob ,{addJob} from './pages/Addjobpage';
-import Editjob from './pages/Editjobpage';
-import Jobpage, { jobLoader } from './pages/jobpage';
-import Notfoundpage from './pages/Notfoundpage';
+import App from './App.jsx';
+import Layout from './layout/mainlayout.jsx';
+import Jobspages from './pages/jobspage.jsx';
+import Addjob ,{addJob} from './pages/Addjobpage.jsx';
+import Editjob from './pages/Editjobpage.jsx';
+import Jobpage, { jobLoader } from './pages/jobpage.jsx';
+import Notfoundpage from './pages/Notfoundpage.jsx';
 import {
   createBrowserRouter,
   RouterProvider,
