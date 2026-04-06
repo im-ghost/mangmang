@@ -12,43 +12,52 @@ import {
   RouterProvider,
   redirect,
 } from "react-router";
+import type { ActionFunctionArgs } from "react-router";
 
   // Delete Job
-  const deleteJob = async ({ params }) => {
+  const deleteJob = async ({ params }: ActionFunctionArgs) => {
     const id = params.id;
+    if (!id) {
+      throw new Error('Job id is required');
+    }
     await fetch(`/api/jobs/${id}`, {
       method: 'DELETE',
     });
-    return;
+    return redirect('/jobs');
   };
 
   // Update Job
-  const updateJob = async ({ request, params }) => {
+  const updateJob = async ({ request, params }: ActionFunctionArgs) => {
     const formData = await request.formData();
-    const job = Object.fromEntries(formData);
-    job.id = params.id;
-    job.company = {
-      name: job.company,
-      description: job.company_description,
-      contactEmail: job.contact_email,
-      contactPhone: job.contact_phone,
+    const formObject = Object.fromEntries(formData) as Record<string, FormDataEntryValue>;
+    const id = params.id;
+    if (!id) {
+      throw new Error('Job id is required');
+    }
+
+    const job = {
+      id,
+      title: String(formObject.title || ''),
+      type: String(formObject.type || ''),
+      location: String(formObject.location || ''),
+      description: String(formObject.description || ''),
+      salary: String(formObject.salary || ''),
+      company: {
+        name: String(formObject.company || ''),
+        description: String(formObject.company_description || ''),
+        contactEmail: String(formObject.contact_email || ''),
+        contactPhone: String(formObject.contact_phone || ''),
+      },
     };
-    job.location = job.location;
-    job.title = job.title;
-    job.description = job.description;
-    job.salary = job.salary;
-    job.type = job.type;
-    delete job.company_description;
-    delete job.contact_email;
-    delete job.contact_phone;
-    await fetch(`/api/jobs/${job.id}`, {
+
+    await fetch(`/api/jobs/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(job),
     });
-    return redirect(`/jobs/${job.id}`);
+    return redirect(`/jobs/${id}`);
   };
 const router = createBrowserRouter([
   {
@@ -88,6 +97,11 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error('Root element not found');
+}
+
+ReactDOM.createRoot(rootElement).render(
   <RouterProvider router={router} />
 );
